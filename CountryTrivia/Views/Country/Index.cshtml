@@ -1,0 +1,104 @@
+﻿@model QA
+@*
+@model IEnumerable<QA>
+
+
+<h2>Countries</h2>
+
+<table class="table">
+
+    @foreach (var country in @Model)
+    {
+        <tr>
+            <td>@country.name</td>
+            <td>@country.cca3</td>
+            <td>@country.capital[0]</td>
+            <td>@country.region</td>
+            <td>@country.subregion</td>
+            <td>@country.landlocked</td>
+            @if (country.borders.Length > 0)
+            {
+                <td>@country.borders[0]</td>
+            } else
+            {
+                <td></td>
+            }
+            <td><img src=@country.flag width="100ppx" height="auto" /></td>
+            <td>@country.population</td>
+        </tr>
+    }
+
+</table>
+
+<h2>Questions</h2>
+
+<table class="table">
+
+    @foreach (var qa in @Model)
+    {
+        <tr>
+            <td><img src=@qa.Flag width="100ppx" height="auto" /></td>
+            <td>@qa.Question</td>
+            <td>@qa.IsFlag</td>
+            <td>@qa.Answers[0]</td>
+            <td>@qa.Answers[1]</td>
+            <td>@qa.Answers[2]</td>
+            <td>@qa.Answers[3]</td>
+            <td>@qa.CorrectAnswer</td>
+        </tr>
+    }
+
+</table>
+*@
+
+<div id="answerbox">
+
+    <h2>Question @Model.QANumber</h2>
+    <h5>Round @Model.RndNumber</h5>
+
+    @*
+    <br />
+    @Model.CorrectAnswer
+    <br />
+    *@
+    <br />
+
+    @if(@Model.IsFlag) 
+    {
+        <img src=@Model.Flag />
+        <br />
+    }
+    <br />
+    <h6 id="questiontext">@Model.Question</h6>
+    <br />
+    <br />
+    @using (Html.BeginForm("ShowAnswer","Country",FormMethod.Post))
+    {
+        @*
+        @Model.IsFlag<br />
+        *@
+        <table class="table">
+
+        <tr>
+                <td>@Html.RadioButtonFor(m => m.SelectedAnswer, 0)@Model.Answers[0]</td>
+                <td>@Html.RadioButtonFor(m => m.SelectedAnswer, 1)@Model.Answers[1]</td>
+        </tr>
+
+        @if (!(Model.TrueFalse))
+        {
+            <tr>
+                <td>@Html.RadioButtonFor(m => m.SelectedAnswer, 2)@Model.Answers[2]</td>
+                <td>@Html.RadioButtonFor(m => m.SelectedAnswer, 3)@Model.Answers[3]</td>
+            </tr>
+        }
+        </table>
+
+        <br />
+        <input type="submit" value="Submit" />
+    }
+
+</<div>
+
+@*
+@Model.CorrectAnswer<br />
+*@

@@ -1,0 +1,67 @@
+﻿@model QA
+
+<div id="answerbox">
+    @if (Model.CorrectAnswer == Model.SelectedAnswer)
+    {
+        <h2 id="correct">Correct</h2>
+    }
+    else
+    {
+        <h2 id="incorrect">Incorrect</h2>
+    }
+    <br />
+
+    @if (@Model.IsFlag)
+    {
+        <img src=@Model.Flag />
+        <br />
+    }
+    <br />
+    <h6 id="questiontext">@Model.Question</h6>
+    <br />
+    <br />
+    <table class="table">
+        <tr>
+            @for (int x = 0; x < 2; x++)
+            {
+                if (@Model.CorrectAnswer == x)
+                {
+                    <td id="correct_tbl">@Model.Answers[x]</td>
+                } else if (@Model.SelectedAnswer == x)
+                {
+                    <td id="incorrect_tbl">@Model.Answers[x]</td>
+                } else
+                {
+                    <td>@Model.Answers[x]</td>
+                }
+            }
+        </tr>
+        @if (!(@Model.TrueFalse))
+        {
+            <tr>
+                    @for (int x = 2; x < 4; x++)
+                    {
+                        if (@Model.CorrectAnswer == x)
+                        {
+                            <td id="correct_tbl">@Model.Answers[x]</td>
+                        }
+                        else if (@Model.SelectedAnswer == x)
+                        {
+                            <td id="incorrect_tbl">@Model.Answers[x]</td>
+                        }
+                        else
+                        {
+                            <td>@Model.Answers[x]</td>
+                        }
+                    }
+            </tr>
+        }
+    </table>
+
+    <br />
+    <a href="/Country/NextQuestion?status=0" id="nextbutton">Next</a>
+</div>
+
+@*
+@Model.CorrectAnswer<br />
+*@

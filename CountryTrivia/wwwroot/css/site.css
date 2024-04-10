@@ -1,0 +1,116 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-size: contain;
+  background-image: url("../images/global-globalization-world-map-environmental-concservation-concept.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 60px;
+}
+
+#displaybox {
+  width: fit-content;
+  height: auto;
+  position:center, center;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  margin: auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align:left;
+}
+
+td {
+    width: 50%;
+}
+
+img {
+  width: 250px;
+  height: auto;
+  border: 1px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#answerbox {
+  width: fit-content;
+  height: auto;
+  resize: both;
+  overflow: auto;
+  position: center, center;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  margin: auto;
+}
+
+h3 {
+  text-align: center;
+}
+
+#correct {
+  color: green;
+}
+
+#correct_tbl {
+  background-color: green;
+  color: white;
+}
+
+#incorrect {
+  color: red;
+}
+
+#incorrect_tbl {
+  background-color: red;
+  color: white;
+}
+
+#nextbutton {
+  padding: 1px 6px;
+  border: 1px outset;
+  border-radius: 3px;
+  color: buttontext;
+  background-color: buttonface;
+  text-decoration: none;
+}
+
+#answertext {
+  font-weight: bold;
+  font-size: larger;
+  color: blue;
+}
+
+#questiontext {
+  font-weight: bold;
+}
+
+#congrats {
+  font-weight: bold;
+  color: limegreen;
+}

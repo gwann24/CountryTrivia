@@ -1,0 +1,15 @@
+﻿@model QA
+
+<div id="answerbox">
+    <h2>Thank You</h2>
+    <h5>for Playing Country Trivia</h5>
+    <br />
+    @if (Model.RndNumber >= 10)
+    {
+        <h2 id="congrats">Congratulations!</h2>
+        <h6>10 Rounds Completed</h6>
+        <br />
+    }
+    <br />
+    <a href="/Home/Index" id="nextbutton">Reset</a>
+</div>
